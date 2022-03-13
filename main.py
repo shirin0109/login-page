@@ -62,8 +62,31 @@ def welcome():
         age = input("enter your name: ").strip()
 
       login = input("enter your login: ").strip().lower()
+      while login.isdigit():
+          print("You've entered numbers")
+          login = input("enter your login: ").strip().lower()
 
-      pass
+
+
+
+     password = input("enter your password: ").strip()
+     confirm_password = input("enter confirm password: ").strip()
+     while password!=confirm_password:
+         print("You've entered different passswords")
+         password = input("enter your password: ").strip()
+         confirm_password = input("enter confirm password: ").strip()
+     self.name=name
+     self.age=age
+     self.login=login
+     self.passwdord=password
+     pass
+
+
+
+
+
+
+
 
 
 
@@ -74,13 +97,10 @@ def welcome():
 
 
 
-
-
-  def user_exists(self, login):
-      mycursor=mydb.cursor()
-      mycursor.execute(f"select login from shirin where login = '{login}'")
-      a=mycursor.fetchall()
-      return bool(a)
+def write_db(self):
+    mycursor=mydb.cursor()
+    mycursor = (f"insert into shirin values("{self.name}", "{self.age}", "{self.login}", "{self.password}")")
+    mydb.commit()
 
 
 
