@@ -86,9 +86,9 @@ def welcome():
 
 
 
-# @staticmethod
-# 	def clear():
-# 		os.system("clear")
+@staticmethod
+	def clear():
+		os.system("clear")
 
 
 a=User()
