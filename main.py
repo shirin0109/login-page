@@ -21,7 +21,7 @@ class User:
     self.age = None
     self.login = None
     self.passwdord = None
-    self.options=["1", "2", "3", "4"]
+    self.welcome()
 
 
 def welcome():
@@ -34,7 +34,7 @@ def welcome():
   """)
   reg_log=input("Enter [1 or 2]:  ")
   while reg_log not in option:
-      os.system("cls")
+      self.clear()
       print("Invalid input")
       reg_log=input("""Please choose one of these options:
                        [1] Register
@@ -50,10 +50,46 @@ def welcome():
 
 
   def register(self):
-    pass
+      name = input("enter your name: ").strip().capitalize()
+      while name.isdigit():
+        self.clear()
+        print("You've entered number")
+        name = input("enter your name :").strip().capitalize()
+
+      age = input("enter your name: ").strip()
+      while age.isalpha():
+        print("You've entered alpha")
+        age = input("enter your name: ").strip()
+
+      login = input("enter your login: ").strip().lower()
+
+      pass
+
+
+
 
   def log_in(self):
     pass
+
+
+
+
+
+
+  def user_exists(self, login):
+      mycursor=mydb.cursor()
+      mycursor.execute(f"select login from shirin where login = '{login}'")
+      a=mycursor.fetchall()
+      return bool(a)
+
+
+
+
+
+# @staticmethod
+# 	def clear():
+# 		os.system("clear")
+
 
 a=User()
 
