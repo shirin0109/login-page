@@ -79,7 +79,11 @@ def welcome():
      self.age=age
      self.login=login
      self.passwdord=password
-     pass
+     self.write_db()
+     self.entering()
+
+  def entering(self):
+      pass
 
 
 
